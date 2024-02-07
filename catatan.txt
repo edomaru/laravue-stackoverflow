@@ -7,3 +7,14 @@ Note:Question merupakan class model yang dipanggil didalam class Factory tersebu
 
 untuk menjalankan perintah migrate sekaligusa dengan data seeder:
  php artisan migrate:fresh --seed
+
+
+cara untuk membuat controller yang dimana sudah automatis ada methode resource dari model yang berkaitan,caranya:
+contoh:php artisan make:controller QuestionController --resource --model=Question
+
+untuk menginstall pagination bawaan laravel perintahnya:
+php artisan vendor:publish --tag=laravel-pagination
+
+
+package/library debug bar:
+composer require barryvdh/laravel-debugbar --dev

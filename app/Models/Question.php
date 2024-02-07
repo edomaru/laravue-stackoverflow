@@ -18,10 +18,33 @@ class Question extends Model
     return $this->belongsTo(User::class);
 }
 
-//mmembuat method setter
-public function setTitleAttribute($value) {
-    $this->attributes['title'] = $value;
-    $this->attributes['slug'] = Str::slug($value);
+// //mmembuat method setter
+// public function setTitleAttribute($value) {
+//     $this->attributes['title'] = $value;
+//     $this->attributes['slug'] = Str::slug($value);
+// }
+
+// //membuat method getter
+// public function getUrlAttribute() {
+//     return route('questions.show',$this->id);
+// }
+
+// //membuat method getter ke.2
+// public function getCreatedDateAttribute() {
+//     return $this->created_at->diffForHumans();
+// }
+
+//get status question
+public function getStatusAttribute() {
+    if($this->answer > 0){
+        if($this->best_answer_id){
+            return "jawaban terbaik";
+        }else{
+            return "sudah terjawab";
+        }
+    }else{
+        return "belum terjawab";
+    }
 }
 
 }

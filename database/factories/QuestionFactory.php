@@ -23,8 +23,8 @@ class QuestionFactory extends Factory
     {
         return [
             'title'=>$this->faker->title,
-            'slug'=>Str::slug($this->faker->title),
-            'body'=>$this->faker->text,
+            'slug'=>$this->faker->slug,
+            'body'=>$this->faker->paragraph,
             'user_id' => User::factory()->create()->id
         ];
     }
