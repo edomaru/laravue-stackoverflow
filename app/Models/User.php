@@ -42,4 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //relasi dari table question ke user
+    public function questions() {
+        return $this->hasMany(Question::class);
+    }
+
+
 }

@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Question;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +21,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //membuat data seeder dengan relasi table sekaligus
+        $users= User::factory(10)->create();
+
+        //membuat relasi seeder dengan table question
+        $users->each(function($user){
+            $user->questions()->createMany(
+                Question::factory(5)->make()->toArray(),
+            );
+        });
     }
 }

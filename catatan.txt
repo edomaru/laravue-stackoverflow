@@ -1,0 +1,9 @@
+cara menambahkan factory untuk generate data dummy,contoh:
+1.php artisan make:factory QuestionFactory --model=Question
+2.setelah itu ketik perintah:composer dump-autoload (ini opsional)
+3.ketik perintah:Question::factory()->count(10)->create()
+Note:Question merupakan class model yang dipanggil didalam class Factory tersebut,disesuaikan dengan model yang digunakan nantinya
+
+
+untuk menjalankan perintah migrate sekaligusa dengan data seeder:
+ php artisan migrate:fresh --seed
